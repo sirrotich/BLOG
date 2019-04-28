@@ -7,15 +7,16 @@ from . import main
 from .. import db,photos
 from .forms import *
 import markdown2
+# from .forms import ReviewFormfrom .forms import ReviewForm
 
 @main.route('/')
-def index():from .forms import ReviewFormfrom .forms import ReviewForm
+def index():
     '''
     my index page
     return
     '''
-    blogs = Blogs.query.order_by(Blogs.date.desc()).all()from .forms import ReviewForm
-
+    # blogs = Blogs.query.order_by(Blogs.date.desc()).all()from .forms import ReviewForm
+    blogs = Blogs.query.order_by(Blogs.date.desc()).all()
 
     title= "Emdee's Blog"
     return render_template('index.html',title=title, blogs=blogs)
