@@ -78,3 +78,40 @@ class Comments(db.Model):
 
     def __repr__(self):
         return f"Comments('{self.comment}', '{self.date_posted}')"
+
+
+class Role(db.Model):
+    """
+    Create a Role table
+    """
+
+    __tablename__ = 'roles'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(60), unique=True)
+    description = db.Column(db.String(200))
+    user = db.relationship('User', backref='role',
+                                lazy='dynamic')
+
+    def __repr__(self):
+        return '<Role: {}>'.format(self.name)
+
+class Subscriber(UserMixin, db.Model):
+   __tablename__="subscribers"
+
+   id = db.Column(db.Integer, primary_key=True)
+   name = db.Column(db.String(255))
+   email = db.Column(db.String(255),unique = True,index = True)
+
+
+   def save_subscriber(self):
+       db.session.add(self)
+       db.session.commit()
+
+   @classmethod
+   def get_subscribers(cls,id):
+       return Subscriber.query.all()
+
+
+   def __repr__(self):
+       return f'User {self.email}'
