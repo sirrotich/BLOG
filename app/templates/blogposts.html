@@ -2,30 +2,47 @@
 
 {% block content %}
 
-{% for blogpost in blogposts %}
-<br>
-<br>
-<div class="container">
-  <div class="media">
-    <div class="media-left media-top">
-      <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairDreads01&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Hearts&eyebrowType=DefaultNatural&mouthType=Sad&skinColor=Pale" class="media-object" style="width:80px">
+<div class="row">
 
+    <div class="col-md-4">
+    <div class="card">
+      <img src="https://cdn.jakprints.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/h/t/httpjakprints.com-images.s3.amazonaws.comimportfull-colorgreeting-cardscustom-thank-you-cards--02.jpg" width="300" class="rounded-circle" alt="avatar">
+      <div class="card-body">
+        <h5 class="card-title">Educational</h5>
+        <p class="card-text">The impact of fast education in the country has been greatly <br>influenced by online schools</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 17hrs ago</small>
+      </div>
+      </div>
     </div>
-    <div class="media-body">
-      <h4 class="media-heading"><a href="blog/new/{{ blogpost.id }}">{{ blogpost.title }}</a></h4>
-      <h6 class="media-heading">{{ blogpost.topic }}</h6>
-      <p class="media-content">{{ blogpost.content }}</p>
 
-    </div>
-    <small><a class="mr-2" href="#">{{ blogpost.author }}</a></small>
-    <small class="text-muted">{{ blogpost.date.strftime('%B %d, %Y') }}</small>
-    <hr>
+    <div class="col-md-4">
+        <div class="card">
+          <img src="https://cdn2.itpro.co.uk/sites/itpro/files/styles/article_main_wide_image/public/business-intelligence-wall.jpg?itok=Cke8Sq0b" width="300" class="rounded-circle" alt="avatar">
+          <div class="card-body">
+            <h5 class="card-title">Business</h5>
+            <p class="card-text">Globally the business rates has risen with a level of<br>45% and this is gwowing the worlds market extensively</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 17hrs ago</small>
+          </div>
+          </div>
+        </div>
 
-  </div>
-
-
-  <hr>
-
-  {% endfor %}
+        <div class="col-md-4">
+            <div class="card">
+              <img src="https://cdn.jakprints.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/h/t/httpjakprints.com-images.s3.amazonaws.comimportfull-colorgreeting-cardscustom-thank-you-cards--02.jpg" width="300" class="rounded-circle" alt="avatar">
+              <div class="card-body">
+                <h5 class="card-title">Educational</h5>
+                <p class="card-text">The impact of fast education in the country has been greatly <br>influenced by online schools</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 17hrs ago</small>
+              </div>
+              </div>
+            </div>
+    
+    
 </div>
 {% endblock content %}

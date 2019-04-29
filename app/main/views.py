@@ -7,6 +7,8 @@ from . import main
 from .. import db,photos
 from .forms import *
 import markdown2
+from ..requests import get_quotes
+
 # from .forms import ReviewFormfrom .forms import ReviewForm
 
 @main.route('/')
@@ -15,11 +17,16 @@ def index():
     my index page
     return
     '''
+    myquote = get_quotes()
+    quote = myquote['quote']
+    quote_author = myquote['author']
+    
+    page = request.args.get('page', 1, type=int)
     # blogs = Blogs.query.order_by(Blogs.date.desc()).all()from .forms import ReviewForm
     blogs = Blogs.query.order_by(Blogs.date.desc()).all()
-
-    title= "Emdee's Blog"
-    return render_template('index.html',title=title, blogs=blogs)
+    
+    title = 'Sir Titus blog'
+    return render_template('index.html',title=title, blogs=blogs,quote = quote, quote_author = quote_author)
 
 @main.route('/user/<uname>')
 def profile(uname):

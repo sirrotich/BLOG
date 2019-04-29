@@ -1,43 +1,35 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg " style="background-color: black;">
-  <a class="navbar-brand" href="/">Blog Center</a>
+<br>
+<br>
+<nav class="navbar navbar-expand-lg ">
+  <button  class="btn btn-outline-primary"><a class="navbar-brand" href="/">Blog Center</a></button>
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <button class="btn btn-outline-info"><a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a></button>
       </li>
       <br>
       <br>
-      <li >
-        <a class="nav-link" href="/blogposts">Blogs</a>
+      <li class="nav-item">
+          <button class="btn btn-outline-info"><a class="nav-link" href="/blogposts">Blogs</a></button>
       </li>
 
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
       {% if current_user.is_authenticated %}
-      <!-- {% if current_user.is_admin %}
-        <li>
-          <a class="nav-link" href="{{ url_for('main.admin_dashboard') }}">Dashboard</a>
-        </li>
-
-      {% else %}
-        <li>
-          <a class="nav-link" href="{{ url_for('main.admin_dashboard') }}">Dashboard</a>
-        </li>
-      {% endif %} -->
       <li>
         <a class="nav-link" href="{{url_for('main.profile',uname=current_user.author)}}">Profile</a>
       </li>
-      <li >
+      <li>
         <a class="nav-link" href="{{url_for('auth.logout')}}">Sign out</a>
       </li>
       {% else %}
       <li >
-        <a class="nav-link" href="{{url_for('auth.login')}}">Sign in</a>
+        <button class="btn btn-outline-info"><a class="nav-link" href="{{url_for('auth.login')}}">Sign in</a></button>
       </li>
       {%endif%}
     </ul>
