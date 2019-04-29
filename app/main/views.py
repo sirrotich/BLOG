@@ -69,16 +69,6 @@ def update_pic(uname):
     return redirect(url_for('main.profile',uname=uname))
 
 # add admin dashboard view
-@main.route('/admin/dashboard')
-@login_required
-def admin_dashboard():
-    # prevent non-admins from accessing the page
-    if not current_user.is_admin:
-        abort(403)
-
-    blogposts = Blogs.query.all()
-
-    return render_template('admin_dashboard.html', title="Dashboard",blogposts=blogposts)
 
 @main.route('/blog/', methods = ['GET','POST'])
 @login_required
@@ -102,7 +92,7 @@ def new_blog():
 
         subscriber = Subscriber.query.all()
         for email in subscriber:
-            mail_message("New Blog Post from Emdee's Blog ","email/postnotification",email.email,subscriber=subscriber)
+            mail_message("Get in touch with awesome blogs ","email/postnotification",email.email,subscriber=subscriber)
 
         return redirect(url_for('main.single_blog',id=blogpost.id))
 
@@ -115,6 +105,7 @@ def single_blog(id):
     blogpost = Blogs.query.get(id)
 
     return render_template('oneblogpost.html',blogpost=blogpost)
+
 
 @main.route('/blogposts')
 def blogpost_list():
@@ -210,7 +201,7 @@ def delete_comment(blogs_id):
 
 @main.route('/subscribe', methods=['GET','POST'])
 def subscriber():
-
+    
     subscriber_form=SubscriberForm()
     blogs = Blogs.query.order_by(Blogs.date.desc()).all()
 
@@ -221,9 +212,9 @@ def subscriber():
         db.session.add(subscriber)
         db.session.commit()
 
-        mail_message("Hello, Welcome To Emdee's Blog.","email/welcome_subscriber",subscriber.email,subscriber=subscriber)
+        mail_message("Get daily updated blogs","email/welcome_subscriber",subscriber.email,subscriber=subscriber)
 
-        title= "Emdee's Blog"
+        title= "The Blog site"
         return render_template('index.html',title=title, blogs=blogs)
 
     subscriber = Blogs.query.all()
