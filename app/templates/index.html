@@ -1,9 +1,11 @@
 {% extends 'base.html'%}
 {% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+ {% endblock %}
 {% block content %}
 
 <body>
+  
     <div></div>
     <div class="row" style="background-image: url('https://kiwiwebsitedesign.nz/wp-content/uploads/2018/03/pages.jpg'); background-repeat: no-repeat; background-size: cover;">
       <div class="welcome" style="height: 400px;text-align: center;margin:0 auto;">
@@ -98,7 +100,7 @@
       <div class="card-body text-info">
         <h5 class="card-title">Movie Hub</h5>
         <p class="card-text">The most incredible thing to do when bored is to watch a movie</p>
-       
+        <button type="button" class="btn btn-outline-primary"><a href="/blogcommentlink.html">Add Pitch</a></button>
       </div>
       </div>
     </div>
