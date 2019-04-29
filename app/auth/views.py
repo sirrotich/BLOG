@@ -28,8 +28,9 @@ def login():
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
+
+    registration_form = RegistrationForm()
+    if registration_form.validate_on_submit():
         user = User(email = form.email.data,
          author = form.author.data,
          password = form.password.data)
@@ -43,7 +44,7 @@ def register():
 
         return redirect(url_for('auth.login'))
 
-    return render_template('auth/register.html',registration_form = form)
+    return render_template('auth/register.html',registration_form = registration_form)
 
 @auth.route('/logout')
 @login_required
