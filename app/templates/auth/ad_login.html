@@ -16,9 +16,8 @@
         <!-- Login form -->
         <form method="POST" class="text-center"  >
 
-            {{login_form.hidden_tag()}}
     
-            
+
             <div class="form-group ">
                 {{ login_form.email.label(class="") }} {{ login_form.email(class="form-control") }}
             </div>
@@ -34,7 +33,6 @@
         <br>
         {{ login_form.submit(class="btn btn-primary btn-lg") }}
     </form>
-        <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
        </div>
        <div clas="col-md-2"> </div>
       </div>
