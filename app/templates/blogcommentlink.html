@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% import 'bootstrap/wtf.html' as wtf %} {% block content %}
+{% extends 'base.html' %} 
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
 
 <div class="jumbotron text-center">
   <h1 class="display-2">Blog</h1><br>
@@ -58,3 +60,7 @@
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <form action="{{ url_for('main.delete_blog', id=blogpost.id) }}" method="post">
                     <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+                </div>
+
+{% endblock%}
