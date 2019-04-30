@@ -1,6 +1,8 @@
 {% extends 'base.html'%}
 {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
  {% endblock %}
 {% block content %}
 
@@ -41,6 +43,40 @@
 
   <br>
   <br>
+  <div class="container-fluid social text-center">
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="#">
+          <i class="fab fa-facebook fa-3x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://www.instagram.com/sir_rotich/">
+          <i class="fab fa-instagram fa-3x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://github.com/sirrotich">
+          <i class="fab fa-github fa-3x"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
+    <div class="sm:flex sm:items-center px-6 py-4">
+      <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="{{url_for('static',filename='./pro.jpg')}}" alt="">
+      <div class="text-center sm:text-left sm:flex-grow">
+        <div class="mb-4">
+          <p class="text-xl leading-tight">Titus Rotich</p>
+          <p class="text-sm leading-tight text-grey-dark">Junior fullStack developer</p>
+        </div>
+        <div>
+          <button class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple hover:bg-purple hover:text-white">Follow</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="footer" style="background-color: lightblue;">
     <h4><marquee>Sir Titus @copyright 2019</marquee></h4>
   </div>
