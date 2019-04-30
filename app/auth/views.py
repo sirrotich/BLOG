@@ -16,7 +16,7 @@ def login():
             login_user(user,login_form.remember.data)   
 
             # redirect to the appropriate dashboard page
-            return redirect(url_for('main.index'))
+        return redirect(url_for('main.index'))
 
     flash('Invalid author or Password')
 
