@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,SubmitField
 from wtforms.validators import Required
+from flask_pagedown.fields import PageDownField
 
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about yourself.',validators = [Required()])
@@ -22,3 +23,7 @@ class SubscriberForm(FlaskForm):
     email = StringField('Your Email Address')
     name = StringField('Enter your name',validators = [Required()])
     submit = SubmitField('Subscribe')
+
+class PostForm(FlaskForm):
+    body = PageDownField("What's on your mind?", validators=[Required()])
+    submit = SubmitField('Submit')

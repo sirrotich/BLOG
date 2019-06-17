@@ -7,11 +7,14 @@ from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 from flask_babelex import Babel
 from flask_simplemde import SimpleMDE
+from flask_moment import Moment
+from flask_pagedown import PageDown
 
 # bootstrap = Bootstrap()
 db = SQLAlchemy()
 
 mail = Mail()
+pagedown = PageDown()
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -39,6 +42,8 @@ def create_app(config_name):
     login_manager.init_app(app)
     mail.init_app(app)
     babel = Babel(app)
+    moment = Moment(app)
+    pagedown.init_app(app)
     # simple.init_app(app)
 
 

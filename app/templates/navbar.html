@@ -1,6 +1,7 @@
 <!-- Navigation -->
 <br>
 <br>
+
 <nav class="navbar navbar-expand-lg">
   <button  class="btn btn-outline-primary"><a class="navbar-brand" href="/">Blog Center</a></button>
     <span class="navbar-toggler-icon"></span>
@@ -8,6 +9,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li>
+        
+      </li>
       <li class="nav-item active">
           <button class="btn btn-outline-info"><a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a></button>
       </li>
@@ -20,7 +24,9 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
+      WELCOME:
       {% if current_user.is_authenticated %}
+      {{ current_user.author | capitalize}}
       <li>
         <a class="nav-link" href="{{url_for('main.profile',uname=current_user.author)}}">Profile</a>
       </li>
@@ -31,9 +37,9 @@
       <li >
         <button class="btn btn-outline-info"><a class="nav-link" href="{{url_for('auth.login')}}">Sign in</a></button>
       </li>
-      <li >
+      <!-- <li >
         <button class="btn btn-outline-info"><a class="nav-link" href="{{url_for('auth.ad_login')}}">Admin Login</a></button>
-      </li>
+      </li> -->
       {%endif%}
     </ul>
   </div>

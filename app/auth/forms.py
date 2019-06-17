@@ -34,3 +34,19 @@ class ad_LoginForm(FlaskForm):
     def validate_email(self,data_field):
         if User.query.filter_by(email =data_field.data).first():
             raise ValidationError('You are not the Admin')
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Email',validators = [Email()])
+    submit = SubmitField('Request Password Reset')
+
+
+    def validate_email(self,data_field):
+            user = User.query.filter_by(email =data_field.data).first()
+            if user is None:
+                raise ValidationError('There is an account with that email')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
+    password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
+    submit = SubmitField('Reset Password')

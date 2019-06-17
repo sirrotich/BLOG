@@ -16,28 +16,19 @@
         <!-- Login form -->
         <form method="POST" class="text-center"  >
 
-            {{login_form.hidden_tag()}}
+            {{reset_token_form.hidden_tag()}}
     
             
             <div class="form-group ">
-                {{ login_form.email.label(class="") }} {{ login_form.email(class="form-control") }}
+                {{ reset_token_form.password.label(class="") }} {{ reset_token_form.password(class="form-control") }}
             </div>
             <br>
-          
-            <div class="form-group">
-                {{ login_form.password.label }} {{ login_form.password(class="form-control") }}
+            <div class="form-group ">
+                    {{ reset_token_form.confirm_password.label(class="") }} {{ reset_token_form.confirm_password(class="form-control") }}
             </div>
-            
-
-            
-        {{ login_form.remember}}Remember me
         <br>
-        {{ login_form.submit(class="btn btn-primary btn-lg") }}
+        {{ reset_token_form.submit(class="btn btn-primary btn-lg") }}
     </form>
-        <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
-        <small><a href="{{url_for('auth.reset_request')}}">Forget password?</a></small>
-       </div>
-       <div clas="col-md-2"> </div>
-      </div>
+        
 </div>
 {% endblock%}

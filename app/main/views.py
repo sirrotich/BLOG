@@ -1,3 +1,4 @@
+
 from flask import render_template
 from flask import render_template,request,redirect,url_for,abort, flash
 from flask_login import login_required,current_user
@@ -8,6 +9,8 @@ from .. import db,photos
 from .forms import *
 import markdown2
 from ..requests import get_quotes
+from datetime import datetime
+
 
 # from .forms import ReviewFormfrom .forms import ReviewForm
 
@@ -26,7 +29,7 @@ def index():
     blogs = Blogs.query.order_by(Blogs.date.desc()).all()
     
     title = 'Sir Titus blog'
-    return render_template('index.html',title=title, blogs=blogs,quote = quote, quote_author = quote_author)
+    return render_template('index.html',title=title, blogs=blogs,quote = quote, quote_author = quote_author,current_time=datetime.utcnow)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -119,7 +122,6 @@ def blogpost_list():
 
 # viewing comments and respective posts
 @main.route('/blog/new/<int:blogs_id>/',methods=["GET","POST"])
-
 def blogpost(blogs_id):
     blogpost = Blogs.query.filter_by(id=blogs_id).first()
     form = CommentForm()
@@ -223,3 +225,5 @@ def subscriber():
 
 
     return render_template('subscribe.html',subscriber=subscriber,subscriber_form=subscriber_form,blog=blog)
+
+
